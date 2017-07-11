@@ -1,0 +1,51 @@
+<div class="row">
+	<div class="col-sm-8 col-sm-push-2">
+		<div class="col-sm-6">
+			<%= image_tag @movie.poster.url(:medium), class: 'show_image' %>
+		</div>
+		<div class="col-sm-6 show_info_container">
+			<h3><%= @movie.title %></h3>
+			<h5><%= @movie.director %></h5>
+			<p class="show_synopsis"><i><%= @movie.synopsis %></i></p>
+			<%= link_to "Edit", edit_movie_path(@movie), class: 'btn btn-success' %> 
+			<%= link_to "Delete", movie_path(@movie), method: :delete, class: 'btn btn-danger' %> 
+			<button type="button" class="btn btn-primary" data-target="#reviewModal" data-toggle="modal">Add Review</button> 
+		</div>
+	</div>		
+</div>
+<div class="row show_review_row">
+	<div class="col-sm-8 col-sm-push-2">
+		<div class="col-sm-12">
+			<h4>Reviews</h4>
+		</div>
+		<% @reviews.each do |r| %> 
+			<div class="col-sm-12 show_comment_container">
+				<p><%= r.comment %></p>	
+			</div>
+		<% end %> 
+		<%= will_paginate @reviews %>
+	</div>		
+</div>
+
+<div id='reviewModal' class="modal fade">
+	<div class="modal-dialog" role="document">
+		<div class="modal-content">
+			<div class="modal-header">
+				<button type="button" class="close" data-dismiss="modal" aria-label="close">
+					 <span aria-hidden="true">&times;</span>
+				</button>
+				<h4>Create Review</h4>
+			</div>
+			<div class="modal-body">
+				<%= form_for([@movie, @review]) do |r| %> 
+					<%= r.text_area :comment, placeholder: 'Add your review', class: 'form-control form_area' %>  
+			</div>
+			<div class="modal-footer">
+					<%= r.submit "Create", class: 'btn btn-primary' %> 
+				<% end %>
+			</div>
+		</div>
+	</div>
+</div>
+
+
