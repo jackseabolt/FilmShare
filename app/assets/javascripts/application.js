@@ -14,4 +14,30 @@
 //= require jquery_ujs
 //= require bootstrap-sprockets
 //= require turbolinks
+//= require jquery.raty
 //= require_tree .
+
+$(document).on('turbolinks:load', function(){
+	$('.review-rating').raty({
+	  readOnly: true,
+	  score: function() {
+	    return $(this).attr('data-number');
+	  },
+	  path: '/assets/'
+	});
+
+	$('#rating-form').raty({
+	  path: '/assets/',
+	  scoreName: 'review[rating]'
+	});
+
+	$('.average-review-rating').raty({
+	  readOnly: true,
+	  path: '/assets/',
+	  score: function() {
+	    return $(this).attr('data-score')
+	  }
+	});
+
+
+});

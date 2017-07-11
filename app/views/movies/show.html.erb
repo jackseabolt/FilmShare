@@ -6,6 +6,8 @@
 		<div class="col-sm-6 show_info_container">
 			<h3><%= @movie.title %></h3>
 			<h5><%= @movie.director %></h5>
+			<div class="review-rating" data-number="<%= @average_review %>">
+			</div>
 			<p class="show_synopsis"><i><%= @movie.synopsis %></i></p>
 			<%= link_to "Edit", edit_movie_path(@movie), class: 'btn btn-success' %> 
 			<%= link_to "Delete", movie_path(@movie), method: :delete, class: 'btn btn-danger' %> 
@@ -18,12 +20,19 @@
 		<div class="col-sm-12">
 			<h4>Reviews</h4>
 		</div>
-		<% @reviews.each do |r| %> 
-			<div class="col-sm-12 show_comment_container">
-				<p><%= r.comment %></p>	
+		<% if @reviews.empty? %>
+			<div class="col-sm-12">
+				<p><i><br />No reviews yet</i></p>
 			</div>
+		<% else %> 
+			<% @reviews.each do |r| %> 
+				<div class="col-sm-12 show_comment_container">
+					<div class="review-rating" data-number="<%= r.rating %>"></div>
+					<p><%= r.comment %></p>	
+				</div>
+			<% end %> 
+			<%= will_paginate @reviews %>
 		<% end %> 
-		<%= will_paginate @reviews %>
 	</div>		
 </div>
 
@@ -38,7 +47,12 @@
 			</div>
 			<div class="modal-body">
 				<%= form_for([@movie, @review]) do |r| %> 
-					<%= r.text_area :comment, placeholder: 'Add your review', class: 'form-control form_area' %>  
+					<%= r.text_area :comment, placeholder: 'Add your review', class: 'form-control form_area' %> 
+					<br />
+					<div id="rating-form">
+						<label>Rating</label>
+					</div>	 
+			
 			</div>
 			<div class="modal-footer">
 					<%= r.submit "Create", class: 'btn btn-primary' %> 
@@ -47,5 +61,6 @@
 		</div>
 	</div>
 </div>
+
 
 

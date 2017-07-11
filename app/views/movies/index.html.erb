@@ -6,6 +6,8 @@
 					<%= image_tag m.poster.url(:medium), class: 'index_image' %> 
 						<h4><%= m.title %></h4>
 						<h5><%= m.director %> </h5>
+						
+						<div class="review-rating" data-number="<%= m.average_review(m) %>"></div>
 						<br />
 					<%= link_to "Edit", edit_movie_path(m), class: 'btn btn-primary' %> 
 					<%= link_to "Remove", movie_path(m), method: :delete, class: "btn btn-danger" %> 

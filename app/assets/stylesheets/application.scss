@@ -12,6 +12,7 @@
  *
  *= require_tree .
  *= require_self
+ *= require jquery.raty
  */
 
 @import "bootstrap-sprockets";
@@ -42,6 +43,10 @@ a:hover {
 }
 .index_well {
 	overflow: auto;
+}
+.review-rating {
+	padding-top: 5px; 
+	padding-bottom: 10px; 
 }
 .show_comment_container {
 	padding-top: 10px;

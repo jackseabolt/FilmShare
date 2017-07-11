@@ -4,5 +4,13 @@ class Movie < ApplicationRecord
 
   	has_many :reviews 
 
+  	def average_review(movie)
+		if movie.reviews.blank?
+      		return 0
+   		else
+      		return movie.reviews.average(:rating).round(2)
+    	end
+  	end
+
 end
 

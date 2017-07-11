@@ -10,7 +10,7 @@ gem 'bootstrap-sass', '~> 3.3', '>= 3.3.7'
 gem 'will_paginate', '~> 3.1', '>= 3.1.6'
 gem 'bootstrap-will_paginate', '~> 1.0'
 gem 'paperclip', '~> 5.1'
-gem 'ratyrate', '~> 1.2.2.alpha'
+gem 'raty_ratings'
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '~> 5.0.4'
