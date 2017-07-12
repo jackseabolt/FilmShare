@@ -23,6 +23,7 @@ class MoviesController < ApplicationController
 
 	def create
 		@movie = Movie.create(movie_params)
+		@movie.user_id = current_user.id
 		if @movie.save
 			flash[:success] = "Your movie was created!"
 			redirect_to root_path
@@ -58,7 +59,7 @@ class MoviesController < ApplicationController
 	private 
 
 		def movie_params 
-			params.require(:movie).permit(:title, :director, :poster, :synopsis)
+			params.require(:movie).permit(:title, :director, :poster, :synopsis, :user_id)
 		end 
 
 		def find_movie 
