@@ -11,13 +11,13 @@
 // about supported directives.
 //
 //= require jquery
+//= require jquery.turbolinks
 //= require jquery_ujs
 //= require bootstrap-sprockets
-//= require turbolinks
 //= require jquery.raty
 //= require_tree .
 
-$(document).on('turbolinks:load', function(){
+$(function(){
 	$('.review-rating').raty({
 	  readOnly: true,
 	  score: function() {

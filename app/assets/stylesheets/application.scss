@@ -18,6 +18,8 @@
 @import "bootstrap-sprockets";
 @import "bootstrap";
 
+$pad: 50px;
+
 .alert {
 	margin-bottom: 50px !important; 
 }
@@ -28,6 +30,9 @@ a {
 a:hover {
 	text-decoration: none; 
 	color: black; 
+}
+.bottom_padding { 
+	padding-bottom: $pad; 
 }
 .form_area {
 	height: 200px !important; 
@@ -55,9 +60,6 @@ a:hover {
 .show_image {
 	width: 100%; 
 }
-.show_review_row {
-	padding-top: 50px;
-}
 .show_synopsis {
 	padding-bottom: 20px; 
 }
@@ -65,5 +67,5 @@ a:hover {
 	padding-left: 40px; 
 }
 .top_padding { 
-	padding-top: 50px; 
+	padding-top: $pad; 
 }
