@@ -2,6 +2,7 @@ class MoviesController < ApplicationController
 
 	before_action :find_movie, only: [:show, :edit, :update, :destroy ]
 	before_action :authenticate_user!, only: [:new, :create, :edit, :update, :destroy]
+    before_action :find_newmovie, only: [:show, :index, :new]
 
 	def show
 		@reviews = @movie.reviews.all.order(created_at: :desc).paginate(:page => params[:page], :per_page => 3)
@@ -15,6 +16,7 @@ class MoviesController < ApplicationController
 
 	def index 
 		@movies = Movie.all.order(title: :asc).paginate(:page => params[:page], :per_page => 3)
+		@newmovie = Movie.new
 	end 
 
 	def new
@@ -65,5 +67,9 @@ class MoviesController < ApplicationController
 		def find_movie 
 			@movie = Movie.find(params[:id])
 		end 
+
+		def find_newmovie
+			@newmovie = Movie.new
+		end
 
 end
