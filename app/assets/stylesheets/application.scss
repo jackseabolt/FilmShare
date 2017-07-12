@@ -19,7 +19,9 @@
 @import "bootstrap";
 
 $pad: 50px;
-
+body {
+	background-color: #4f4e4e; 
+}
 .alert {
 	margin-bottom: 50px !important; 
 }
@@ -31,11 +33,8 @@ a:hover {
 	text-decoration: none; 
 	color: black; 
 }
-.btn { 
-	margin-bottom: 4px !important; 
-}
 .bottom_padding { 
-	padding-bottom: $pad; 
+	padding-bottom: $pad !important; 
 }
 .form_area {
 	height: 200px !important; 
@@ -70,5 +69,11 @@ a:hover {
 	padding-left: 40px; 
 }
 .top_padding { 
-	padding-top: $pad; 
+	padding-top: $pad;
+}
+.btn_pad { 
+	margin-bottom: 4px !important; 
+}
+.white {
+	color: white !important; 
 }

@@ -1,34 +1,30 @@
 <div class="row">
 	<div class="col-md-6 col-md-push-3 col-sm-8 col-sm-push-2 col-xs-10 col-xs-push-1">
 		<div class="col-sm-6 well">
-			<%= image_tag @movie.poster.url(:medium), class: 'show_image' %>
+			<%= image_tag @movie.poster.url(:normal), class: 'show_image' %>
 		</div>
 		<div class="col-sm-6 show_info_container">
-			<h3><%= @movie.title %></h3>
-			<h5><%= @movie.director %></h5>
+			<h3 class="white"><%= @movie.title %></h3>
+			<h5 class="white"><%= @movie.director %></h5>
 			<div class="review-rating" data-number="<%= @average_review %>">
 			</div>
-			<p class="show_synopsis"><i><%= @movie.synopsis %></i></p>
-			<%= link_to "Edit", edit_movie_path(@movie), class: 'btn btn-success' %> 
-			<%= link_to "Delete", movie_path(@movie), method: :delete, class: 'btn btn-danger' %> 
-			<button type="button" class="btn btn-primary" data-target="#reviewModal" data-toggle="modal">Add Review</button> 
+			<p class="show_synopsis white"><i><%= @movie.synopsis %></i></p>
+			<%= link_to "Edit", edit_movie_path(@movie), class: 'btn btn-success btn_pad' %> 
+			<%= link_to "Delete", movie_path(@movie), method: :delete, class: 'btn btn-danger btn_pad' %> 
+			<button type="button" class="btn_pad btn btn-primary" data-target="#reviewModal" data-toggle="modal">Add Review</button> 
 		</div>
 	</div>		
 </div>
 <div class="row bottom_padding top_padding">
 	<div class="col-md-6 col-md-push-3 col-sm-8 col-sm-push-2 col-xs-10 col-xs-push-1">
-		<% if @reviews.empty? %>
-			<div class="col-sm-12">
-				<p><i><br />No reviews yet</i></p>
-			</div>
-		<% else %> 
+		<% if !@reviews.empty? %>
 			<% @reviews.each do |r| %> 
 				<div class="col-sm-12 show_comment_container well">
 					<div class="review-rating" data-number="<%= r.rating %>"></div>
 					<p><%= r.comment %></p>	
 				</div>
 			<% end %> 
-			<%= will_paginate @reviews %>
+			<%= will_paginate @reviews, class: 'text-center' %>
 		<% end %> 
 	</div>		
 </div>
