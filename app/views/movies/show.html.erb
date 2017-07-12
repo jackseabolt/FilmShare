@@ -10,8 +10,10 @@
 			</div>
 			<p class="show_synopsis white"><i><%= @movie.synopsis %></i></p>
 			<% if user_signed_in? %> 
-				<%= link_to "Edit", edit_movie_path(@movie), class: 'btn btn-success btn_pad' %> 
-				<%= link_to "Delete", movie_path(@movie), method: :delete, class: 'btn btn-danger btn_pad' %> 
+				<% if @movie.user_id == current_user.id %> 
+					<%= link_to "Edit", edit_movie_path(@movie), class: 'btn btn-success btn_pad' %> 
+					<%= link_to "Delete", movie_path(@movie), method: :delete, class: 'btn btn-danger btn_pad' %> 
+				<% end %> 
 			<% end %> 
 			<button type="button" class="btn_pad btn btn-primary" data-target="#reviewModal" data-toggle="modal">Add Review</button> 
 		</div>
