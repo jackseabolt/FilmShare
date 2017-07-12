@@ -12,11 +12,14 @@
  *
  *= require_tree .
  *= require_self
+ *= require font-awesome
  *= require jquery.raty
  */
 
+
 @import "bootstrap-sprockets";
 @import "bootstrap";
+
 
 $pad: 50px;
 body {

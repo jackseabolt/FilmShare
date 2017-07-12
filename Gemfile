@@ -13,6 +13,7 @@ gem 'paperclip', '~> 5.1'
 gem 'raty_ratings'
 gem 'devise', '~> 4.3'
 gem 'jquery-turbolinks', '~> 2.1'
+gem "font-awesome-rails"
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '~> 5.0.4'
