@@ -2,15 +2,17 @@
 	<div class="col-md-6 col-md-push-3 col-sm-8 col-sm-push-2 col-xs-10 col-xs-push-1">
 		<% @movies.each do |m| %> 
 			<a href="/movies/<%= m.id %>">
-				<div class="well index_well">
+				<div class="well index_well shadow">
 					<%= image_tag m.poster.url(:medium), class: 'index_image' %> 
 						<h4><%= m.title %></h4>
 						<h5><%= m.director %> </h5>
 						
 						<div class="review-rating" data-number="<%= m.average_review(m) %>"></div>
 						<br />
-					<%= link_to "Edit", edit_movie_path(m), class: 'btn btn-primary' %> 
-					<%= link_to "Remove", movie_path(m), method: :delete, class: "btn btn-danger" %> 
+						<% if user_signed_in? %> 
+							<%= link_to "Edit", edit_movie_path(m), class: 'btn btn-primary' %> 
+							<%= link_to "Remove", movie_path(m), method: :delete, class: "btn btn-danger" %> 
+						<% end %> 
 				</div>
 			</a>
 		<% end %>

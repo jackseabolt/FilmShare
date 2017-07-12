@@ -25,3 +25,16 @@ en:
   will_paginate:
       previous_label: <i class="fa fa-angle-left" style="color:black"></i><p class="will_paginate" style="display:inline"> Previous</p>
       next_label: <p class="will_paginate" style="display:inline">Next </p><i class="fa fa-angle-right" style="color:black"></i>
+
+  devise:
+    failure:
+      unauthenticated: 'You need to sign in or sign up before continuing.'
+      unconfirmed: 'You have to confirm your account before continuing.'
+      locked: 'Your account is locked.'
+      invalid: 'Invalid email or password.'
+      invalid_token: 'Invalid authentication token.'
+      timeout: 'Your session expired, please sign in again to continue.'
+      inactive: 'Your account was not activated yet.'
+    sessions:
+      signed_in: "You have successfully logged in."
+      signed_out: "You have successfully logged out."
