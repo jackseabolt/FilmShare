@@ -86,6 +86,9 @@ a:hover {
 .index_well {
 	overflow: auto;
 }
+.modal_button:focus {
+	outline: none; 
+}
 .middle_padding { 
 	padding-top: 30px !important; 
 }
