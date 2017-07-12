@@ -51,6 +51,9 @@ a:hover {
 .index_well {
 	overflow: auto;
 }
+.middle_padding { 
+	padding-top: 30px !important; 
+}
 .review-rating {
 	padding-top: 5px; 
 	padding-bottom: 10px; 
@@ -67,6 +70,10 @@ a:hover {
 }
 .show_info_container {
 	padding-left: 40px; 
+}
+.show_time_ago {
+	color: #706f6f;
+	font-style: italic;  
 }
 .top_padding { 
 	padding-top: $pad;
