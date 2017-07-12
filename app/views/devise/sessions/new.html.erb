@@ -1,8 +1,9 @@
 <div class="row top_spacing bottom_spacing">
   <div class="col-md-4 col-md-push-4 col-sm-4 col-sm-push-4 col-xs-10 col-xs-push-1">
+  <%= devise_error_messages! %>
     <h3 class="text-center white">Log in</h3>
     <br />
-
+    <%= devise_error_messages! %>
     <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
       <div class="form-group">
         <%= f.email_field :email, autofocus: true, placeholder: 'Email', class: "form-control"  %>
