@@ -16,6 +16,8 @@
 				<% else %>  
 					<p class="show_synopsis white"><i><%= truncate(@movie.synopsis, length:180) %> </i><a href="" data-target="#fullText" data-toggle="modal" class="link">continue</a></p>
 				<% end %> 
+			<% else %> 
+				<p class="show_synopsis white"><i><%= truncate(@movie.synopsis, length:180) %> </i><a href="" data-target="#fullText" data-toggle="modal" class="link">continue</a></p>
 			<% end %>
 			<button type="button" class="btn_pad btn btn-primary" data-target="#reviewModal" data-toggle="modal">Add Review</button> 
 		</div>
