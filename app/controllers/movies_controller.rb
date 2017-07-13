@@ -14,8 +14,11 @@
 		end 
 
 		def index 
-			@movies = Movie.all.order(title: :asc).paginate(:page => params[:page], :per_page => 3)
-			@newmovie = Movie.new
+			if params[:search].nil?
+				@movies = Movie.all.order(title: :asc).paginate(:page => params[:page], :per_page => 3)
+			else 
+				@movies = Movie.where("movies.title || movies.director LIKE ?", "%#{params[:search]}%").order(title: :asc).paginate(:page => params[:page], :per_page => 3)
+			end 
 		end 
 
 		def new
