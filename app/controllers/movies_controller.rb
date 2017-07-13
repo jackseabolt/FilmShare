@@ -29,7 +29,7 @@
 				flash[:success] = "Your movie was created!"
 				redirect_to root_path
 			else
-				flash[:danger] = "You must fill out all form fields. Your request was not processed. "
+				flash.now[:danger] = "You must fill out all form fields. Your request was not processed. "
 				render :new 
 			end 
 		end 
@@ -43,7 +43,7 @@
 				flash[:success] = "Your movie was updated"
 				redirect_to movie_path 
 			else 
-				flash[:danger] = "There was a problem with your request"
+				flash.now[:danger] = "You must fill out all form fields. Your request was not processed."
 			end
 		end 
 
