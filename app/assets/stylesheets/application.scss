@@ -20,6 +20,7 @@
 @import "bootstrap-sprockets";
 @import "bootstrap";
 
+$pad: 50px;
 
 .alert-error {
     background-color: #f2dede;
@@ -47,14 +48,9 @@
     border-color: #d6e9c6;
     color: #468847;
     text-align: center;
- }
-
-
-
-
-$pad: 50px;
+}
 body {
-	background-color: #4f4e4e; 
+	background-color: #434242; 
 }
 .alert {
 	margin-bottom: 50px !important; 
@@ -100,7 +96,7 @@ a:hover {
 	padding-bottom: 10px; 
 }
 .shadow {
-	box-shadow: 0px 0px 15px #303030 !important; 
+	box-shadow: 0px 0px 15px #272727 !important; 
 }
 .show_comment_container {
 	padding-top: 10px;
@@ -127,6 +123,9 @@ a:hover {
 }
 .btn_pad { 
 	margin-bottom: 4px !important; 
+}
+.btn_pad_top { 
+	margin-top: 4px !important; 
 }
 .btn_navigation {
 	color: white !important;

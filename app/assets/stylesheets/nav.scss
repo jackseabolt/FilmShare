@@ -32,3 +32,9 @@ nav {
 .nav_search {
 	margin-left: 40px !important;
 }
+
+@media screen and (max-width:767px){
+	.nav_search {
+		margin-left: 0px !important;
+	}
+}
