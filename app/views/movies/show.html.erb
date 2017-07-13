@@ -8,13 +8,15 @@
 			<h5 class="white"><%= @movie.director %></h5>
 			<div class="review-rating" data-number="<%= @average_review %>">
 			</div>
-			<p class="show_synopsis white"><i><%= @movie.synopsis %></i></p>
 			<% if user_signed_in? %> 
-				<% if @movie.user_id == current_user.id %> 
+				<% if @movie.user_id == current_user.id %>
+					<p class="show_synopsis white"><i><%= truncate(@movie.synopsis, length:155) %> </i><a href="" data-target="#fullText" data-toggle="modal" class="link">continue</a></p>
 					<%= link_to "Edit", edit_movie_path(@movie), class: 'btn btn-success btn_pad' %> 
 					<%= link_to "Delete", movie_path(@movie), method: :delete, class: 'btn btn-danger btn_pad' %> 
+				<% else %>  
+					<p class="show_synopsis white"><i><%= truncate(@movie.synopsis, length:180) %> </i><a href="" data-target="#fullText" data-toggle="modal" class="link">continue</a></p>
 				<% end %> 
-			<% end %> 
+			<% end %>
 			<button type="button" class="btn_pad btn btn-primary" data-target="#reviewModal" data-toggle="modal">Add Review</button> 
 		</div>
 	</div>		
@@ -60,5 +62,21 @@
 	</div>
 </div>
 
-
-
+<div id='fullText' class="modal fade">
+	<div class="modal-dialog" role="document">
+		<div class="modal-content">
+			<div class="modal-header">
+				<button type="button" class="close" data-dismiss="modal" aria-label="close">
+					 <span aria-hidden="true">&times;</span>
+				</button>
+				<h4>Synopsis</h4>
+			</div>
+			<div class="modal-body">
+				
+				<p><%= @movie.synopsis %></p>
+			</div>
+			<div class="modal-footer">
+			</div>
+		</div>
+	</div>
+</div>

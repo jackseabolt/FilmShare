@@ -9,6 +9,15 @@
 						
 						<div class="review-rating" data-number="<%= m.average_review(m) %>"></div>
 						<p class="sub_text"><%= m.review_count(m) %></p>
+						<% if user_signed_in? %>
+							<% if m.user_id == current_user.id %>
+								<p class="sub_text_normal"><%= truncate(m.synopsis, length: 100)%></p>
+							<% else %>
+								<p class="sub_text_normal"><%= truncate(m.synopsis, length: 200)%></p>
+							<% end %> 
+						<% else %> 
+							<p class="sub_text_normal"><%= truncate(m.synopsis, length: 200)%></p>
+						<% end %> 
 						<br />
 						<% if user_signed_in? %>
 							<% if m.user_id == current_user.id %>

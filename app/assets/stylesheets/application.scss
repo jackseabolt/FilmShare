@@ -85,6 +85,17 @@ a:hover {
 .index_well {
 	overflow: auto;
 }
+.link {
+	color:#a3a3a3 !important; 
+	text-decoration: none; 
+}
+.link:hover {
+	color:#7c81a7;
+}
+.link:focus {
+	outline: none;
+	text-decoration: none; 
+}
 .modal_button:focus {
 	outline: none; 
 }
@@ -115,6 +126,9 @@ a:hover {
 	color: #706f6f;
 	font-style: italic;  
 }
+.sub_text_normal {
+	color: #706f6f;
+}
 .stretch {
 	width: 100%; 
 }
@@ -136,4 +150,13 @@ a:hover {
 }
 .white {
 	color: white !important; 
+}
+@media screen and (max-width: 1000px) {
+	.onethousand {
+		display: none; 
+	}
+	.sub_text_normal {
+		display: none; 
+	}
+
 }
