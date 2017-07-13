@@ -7,7 +7,7 @@ Rails.application.routes.draw do
     }
 
   post '/rate' => 'rater#create', :as => 'rate'
-  resources :movies, except: [:new] do 
+  resources :movies, only: [:show, :index, :create, :edit, :update, :destroy] do 
   	resources :reviews, only: [:create] 
   end 
 

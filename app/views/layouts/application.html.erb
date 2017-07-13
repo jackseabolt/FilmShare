@@ -82,7 +82,7 @@
               <h4>Add Movie</h4>
             </div>
             <div class="modal-body">
-              <%= form_for @newmovie do |m| %> 
+              <%= form_for Movie.new do |m| %> 
                 <div class="form-group">
                   <%= m.text_field :title, placeholder: "Title", class: "form-control" %> 
                 </div>
