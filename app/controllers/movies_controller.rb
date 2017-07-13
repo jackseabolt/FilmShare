@@ -4,13 +4,18 @@
 		before_action :authenticate_user!, only: [:new, :create, :edit, :update, :destroy]
 
 		def show
-			@reviews = @movie.reviews.all.order(created_at: :desc).paginate(:page => params[:page], :per_page => 3)
-			@review = Review.new
-			if @movie.reviews.blank?
-	      		@average_review = 0
-	   		else
-	      		@average_review = @movie.reviews.average(:rating).round(2)
-	    	end
+			if params[:search].nil?
+				@reviews = @movie.reviews.all.order(created_at: :desc).paginate(:page => params[:page], :per_page => 3)
+				@review = Review.new
+				if @movie.reviews.blank?
+		      		@average_review = 0
+		   		else
+		      		@average_review = @movie.reviews.average(:rating).round(2)
+		    	end
+		    else
+		    	redirect_to movies_path
+		    	@movies = Movie.where("movies.title || movies.director LIKE ?", "%#{params[:search]}%").order(title: :asc).paginate(:page => params[:page], :per_page => 3)
+		    end 
 		end 
 
 		def index 
