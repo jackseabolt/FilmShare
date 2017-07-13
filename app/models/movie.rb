@@ -14,5 +14,15 @@ class Movie < ApplicationRecord
     	end
   	end
 
+    def review_count(movie)
+      if movie.reviews.count == 1
+        r = " review"
+      else
+        r = " reviews"
+      end 
+
+      return movie.reviews.count.to_s + r
+    end
+
 end
 

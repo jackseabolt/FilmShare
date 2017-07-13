@@ -21,7 +21,6 @@
 @import "bootstrap";
 
 
-
 .alert-error {
     background-color: #f2dede;
     border-color: #eed3d7;
@@ -71,6 +70,10 @@ a:hover {
 .bottom_padding { 
 	padding-bottom: $pad !important; 
 }
+.devise_container {
+	border: 0px; 
+	background: rgba(233, 233, 233, 0.8) !important;
+}
 .form_area {
 	height: 200px !important; 
 }
@@ -112,15 +115,25 @@ a:hover {
 .show_info_container {
 	padding-left: 40px; 
 }
-.show_time_ago {
+.sub_text {
 	color: #706f6f;
 	font-style: italic;  
+}
+.stretch {
+	width: 100%; 
 }
 .top_padding { 
 	padding-top: $pad;
 }
 .btn_pad { 
 	margin-bottom: 4px !important; 
+}
+.btn_navigation {
+	color: white !important;
+	background-color: #494949;  	
+}
+.btn_navigation:hover {
+	background-color: #656565;  	
 }
 .white {
 	color: white !important; 

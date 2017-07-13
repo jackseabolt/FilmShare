@@ -8,6 +8,7 @@
 						<h5><%= m.director %> </h5>
 						
 						<div class="review-rating" data-number="<%= m.average_review(m) %>"></div>
+						<p class="sub_text"><%= m.review_count(m) %></p>
 						<br />
 						<% if user_signed_in? %>
 							<% if m.user_id == current_user.id %> 
