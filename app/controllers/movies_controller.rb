@@ -20,10 +20,13 @@
 
 		def index 
 			if params[:search].nil?
-				@movies = Movie.all.order(title: :asc).paginate(:page => params[:page], :per_page => 3)
+				@movies = Movie.all.order(title: :asc).paginate(:page => params[:movies_page], :per_page => 3)
 			else 
 				@movies = Movie.where("movies.title || movies.director LIKE ?", "%#{params[:search]}%").order(title: :asc).paginate(:page => params[:page], :per_page => 3)
 			end 
+			if user_signed_in?
+				@mymovies = Movie.where(user_id: current_user.id ).paginate(:page => params[:mymovies_page], :per_page => 3)
+			end
 		end 
 
 		def new

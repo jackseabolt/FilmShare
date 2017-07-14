@@ -1,39 +1,107 @@
-<div class="row">
-	<div class="col-md-6 col-md-push-3 col-sm-6 col-sm-push-3 col-xs-10 col-xs-push-1">
-		<% @movies.each do |m| %> 
-			<a href="/movies/<%= m.id %>">
-				<div class="well index_well shadow">
-					<%= image_tag m.poster.url(:normal), class: 'index_image' %> 
-						<h4><%= m.title %></h4>
-						<h5><%= m.director %> </h5>
-						
-						<div class="review-rating" data-number="<%= m.average_review(m) %>"></div>
-						<p class="sub_text"><%= m.review_count(m) %></p>
-						<% if user_signed_in? %>
-							<% if m.user_id == current_user.id %>
-								<p class="sub_text_normal"><%= truncate(m.synopsis, length: 100)%></p>
-							<% else %>
+<% if user_signed_in? %> 
+
+	<div class="row">
+		<div class="col-md-4 col-sm-4 col-sm-push-1 col-md-push-1 col-xs-10 col-xs-push-1">
+			<div class="well shadow">
+				<h4 class="text-center grey">My Movies</h4>
+				<br />
+				<% if @mymovies.count != 0 %>
+					<% @mymovies.each do |m| %>
+						<div class="well show_mymovie_container">
+							<%= image_tag m.poster.url(:thumb), class:'show_mymovie_image' %>
+							<div class="show_mymovie_title_container">
+								<h5><%= truncate(m.title, length: 19) %></h5>
+							</div>
+						</div>
+					<% end %>
+					<%= will_paginate @mymovies, :param_name => :mymovies_page, class: 'text-center' %>
+					<button class="btn btn-primary center-block" data-target="#createMovie" data-toggle="modal">Add Movie</button>
+					<br />
+				<% else %> 
+					<div class="well text-center">
+						<p class="sub_text">You have no movies</p>
+						<button class="btn btn-primary" data-target="#createMovie" data-toggle="modal">Add Movie</button>
+					</div>
+				<% end %>  
+			</div>
+		</div>
+		<div class="col-md-6 col-md-push-1 col-sm-6 col-sm-push-1 col-xs-10 col-xs-push-1">
+			<% @movies.each do |m| %> 
+				<a href="/movies/<%= m.id %>">
+					<div class="well index_well shadow">
+						<%= image_tag m.poster.url(:normal), class: 'index_image' %> 
+							<h4><%= m.title %></h4>
+							<h5><%= m.director %> </h5>
+							
+							<div class="review-rating" data-number="<%= m.average_review(m) %>"></div>
+							<p class="sub_text"><%= m.review_count(m) %></p>
+							<% if user_signed_in? %>
+								<% if m.user_id == current_user.id %>
+									<p class="sub_text_normal"><%= truncate(m.synopsis, length: 100)%></p>
+								<% else %>
+									<p class="sub_text_normal"><%= truncate(m.synopsis, length: 200)%></p>
+								<% end %> 
+							<% else %> 
 								<p class="sub_text_normal"><%= truncate(m.synopsis, length: 200)%></p>
 							<% end %> 
-						<% else %> 
-							<p class="sub_text_normal"><%= truncate(m.synopsis, length: 200)%></p>
-						<% end %> 
-						<br />
-						<% if user_signed_in? %>
-							<% if m.user_id == current_user.id %>
-								<div> 
-								<%= link_to "Edit", edit_movie_path(m), class: 'btn btn-primary btn_pad_top' %> 
-								<%= link_to "Remove", movie_path(m), method: :delete, class: "btn btn-danger btn_pad_top " %> 
-								</div>
+							<br />
+							<% if user_signed_in? %>
+								<% if m.user_id == current_user.id %>
+									<div> 
+									<%= link_to "Edit", edit_movie_path(m), class: 'btn btn-primary btn_pad_top' %> 
+									<%= link_to "Remove", movie_path(m), method: :delete, class: "btn btn-danger btn_pad_top " %> 
+									</div>
+								<% end %> 
 							<% end %> 
-						<% end %> 
-				</div>
-			</a>
-		<% end %>
+					</div>
+				</a>
+			<% end %>
+		</div>
 	</div>
-</div>
-<div class="row bottom_padding">
-	<div class="col-md-6 col-md-push-3 col-sm-8 col-sm-push-2 col-xs-12 text-center"> 
-		<%= will_paginate %>
+	<div class="row bottom_padding">
+		<div class="col-md-6 col-md-push-5 col-sm-6 col-sm-push-5 text-center">
+			<%= will_paginate @movies, :param_name => :movies_page %>
+		</div>
 	</div>
-</div>
+<% else %> 
+	<div class="row">
+		<div class="col-sm-6 col-sm-push-3 col-xs-10 col-xs-push-1">
+			<% @movies.each do |m| %> 
+				<a href="/movies/<%= m.id %>">
+					<div class="well index_well shadow">
+						<%= image_tag m.poster.url(:normal), class: 'index_image' %> 
+							<h4><%= m.title %></h4>
+							<h5><%= m.director %> </h5>
+							
+							<div class="review-rating" data-number="<%= m.average_review(m) %>"></div>
+							<p class="sub_text"><%= m.review_count(m) %></p>
+							<% if user_signed_in? %>
+								<% if m.user_id == current_user.id %>
+									<p class="sub_text_normal"><%= truncate(m.synopsis, length: 100)%></p>
+								<% else %>
+									<p class="sub_text_normal"><%= truncate(m.synopsis, length: 200)%></p>
+								<% end %> 
+							<% else %> 
+								<p class="sub_text_normal"><%= truncate(m.synopsis, length: 200)%></p>
+							<% end %> 
+							<br />
+							<% if user_signed_in? %>
+								<% if m.user_id == current_user.id %>
+									<div> 
+									<%= link_to "Edit", edit_movie_path(m), class: 'btn btn-primary btn_pad_top' %> 
+									<%= link_to "Remove", movie_path(m), method: :delete, class: "btn btn-danger btn_pad_top " %> 
+									</div>
+								<% end %> 
+							<% end %> 
+					</div>
+				</a>
+			<% end %>
+		</div>
+	</div>
+	<div class="row bottom_padding">
+		<div class="col-md-6 col-md-push-3 col-sm-6 col-sm-push-3 text-center">
+			<%= will_paginate %>
+		</div>
+	</div>
+<% end %> 
+
