@@ -7,12 +7,14 @@
 				<br />
 				<% if @mymovies.count != 0 %>
 					<% @mymovies.each do |m| %>
-						<div class="well show_mymovie_container">
-							<%= image_tag m.poster.url(:thumb), class:'show_mymovie_image' %>
-							<div class="show_mymovie_title_container">
-								<h5><%= truncate(m.title, length: 19) %></h5>
+						<a href="/movies/<%= m.id %>">
+							<div class="well show_mymovie_container">
+								<%= image_tag m.poster.url(:thumb), class:'show_mymovie_image' %>
+								<div class="show_mymovie_title_container">
+									<h5><%= truncate(m.title, length: 19) %></h5>
+								</div>
 							</div>
-						</div>
+						</a>
 					<% end %>
 					<%= will_paginate @mymovies, :param_name => :mymovies_page, class: 'text-center' %>
 					<button class="btn btn-primary center-block" data-target="#createMovie" data-toggle="modal">Add Movie</button>
