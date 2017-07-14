@@ -1,5 +1,5 @@
 class Movie < ApplicationRecord
-	has_attached_file :poster, styles: {normal: "272x420#", medium: "300x300#", thumb: "150x100>" }, default_url: "/images/:style/missing.png"
+	has_attached_file :poster, styles: {normal: "272x420#", medium: "300x300#", thumb: "70x70#" }, default_url: "/images/:style/missing.png"
   	validates_attachment_content_type :poster, content_type: /\Aimage\/.*\z/
 
   	has_many :reviews 
