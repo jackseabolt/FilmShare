@@ -113,7 +113,12 @@ a:hover {
 	box-shadow: 0px 0px 15px #272727 !important; 
 }
 .show_mymovie_container {
-	margin-bottom: 20px !important; 
+	margin-bottom: 20px !important;
+	background-color: #252525; 
+	border: 0px;
+	h5 {
+		color: white;
+	}
 }
 .show_mymovie_title_container {
 	display: inline-block; 
@@ -136,6 +141,13 @@ a:hover {
 }
 .show_info_container {
 	padding-left: 40px; 
+}
+.sidebar {
+	background-color: #1e1e1e; 
+	border: 0px;
+}
+.sidebar h4 {
+	color: white;
 }
 .sub_text {
 	color: #706f6f;
