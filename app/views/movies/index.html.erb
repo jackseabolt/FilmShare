@@ -16,7 +16,7 @@
 							</div>
 						</a>
 					<% end %>
-					<%= will_paginate @mymovies, :param_name => :mymovies_page, class: 'text-center' %>
+					
 					<button class="btn btn-primary center-block" data-target="#createMovie" data-toggle="modal">Add Movie</button>
 					<br />
 				<% else %> 
@@ -26,6 +26,7 @@
 					</div>
 				<% end %>  
 			</div>
+			<%= will_paginate @mymovies, :param_name => :mymovies_page, class: 'text-center sidebar_pagination' %>
 		</div>
 		<div class="col-md-6 col-md-push-1 col-sm-6 col-sm-push-1 col-xs-10 col-xs-push-1">
 			<% @movies.each do |m| %> 
@@ -62,7 +63,7 @@
 	</div>
 	<div class="row bottom_padding">
 		<div class="col-md-6 col-md-push-5 col-sm-6 col-sm-push-5 text-center">
-			<%= will_paginate @movies, :param_name => :movies_page %>
+			<%= will_paginate @movies, :param_name => :movies_page, class: 'pagination_main' %>
 		</div>
 	</div>
 <% else %> 
