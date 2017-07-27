@@ -20,7 +20,7 @@
 @import "bootstrap-sprockets";
 @import "bootstrap";
 
-$pad: 50px;
+$pad: 30px;
 
 .alert-error {
     background-color: #f2dede;
@@ -67,7 +67,9 @@ a:hover {
 	padding-bottom: $pad !important; 
 }
 .devise_container {
-	border: 0px; 
+	border: 0px;
+	padding-left: 30px; 
+	padding-right: 30px;  
 	background: rgba(233, 233, 233, 0.8) !important;
 }
 .form_area {
@@ -153,10 +155,20 @@ a:hover {
 .show_info_container {
 	padding-left: 40px; 
 }
+.sidebar_search {
+	background-color: black; 
+	border: 0px;
+	padding: 40px 40px;
+	margin-bottom: 30px;
+	h4 {
+	color: white; 
+	}
+}
 .sidebar {
 	background-color: #1e1e1e; 
 	border: 0px;
 	padding: 40px 40px;
+	margin-bottom: 30px;
 }
 .sidebar h4 {
 	color: white;
@@ -173,6 +185,9 @@ a:hover {
 }
 .stretch {
 	width: 100%; 
+}
+.top_spacing_devise {
+	margin-top: 40px; 
 }
 .top_padding { 
 	padding-top: $pad;
